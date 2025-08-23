@@ -1,0 +1,258 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite 3s;
+  }
+  
+  .animate-slide {
+    animation: slide 3s linear infinite;
+  }
+  
+  .animate-slideDown {
+    animation: slideDown 0.4s ease-out;
+  }
+  
+  .animate-slideInLeft {
+    animation: slideInLeft 1s ease-out;
+  }
+  
+  .animate-slideInRight {
+    animation: slideInRight 1s ease-out;
+  }
+  
+  .animate-gradient {
+    animation: gradient 3s ease-in-out infinite;
+    background-size: 200% 200%;
+  }
+  
+  .animate-progress {
+    animation: progress 2s ease-out;
+  }
+  
+  .animate-progress-delayed {
+    animation: progress 2s ease-out 0.5s;
+  }
+  
+  .animate-truck-move {
+    position: absolute;   /* Konteyner içinde konumlandırma */
+    top: -1.4rem;          /* Yol çizgisinin üstüne sabitleme */
+    animation: truckMove 6s linear infinite;
+  }
+  
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-30px);
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes truckMove {
+  0% {
+    left: 0%;
+    transform: translateX(-50%);
+  }
+  100% {
+    left: 100%;
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll Özelletirmesi */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #06b6d4, #0891b2);
+  border-radius: 6px;
+  border: 2px solid #e0f7fa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #0891b2, #06b6d4);
+}
+
+/* Enhanced hover effects */
+.group:hover .group-hover\:scale-110 {
+  transform: scale(1.1);
+}
+
+.group:hover .group-hover\:rotate-6 {
+  transform: rotate(6deg);
+}
+
+/* Backdrop blur support */
+.backdrop-blur-lg {
+  backdrop-filter: blur(16px);
+}
+
+/* Custom gradient animations */
+.bg-gradient-animate {
+  background: linear-gradient(-45deg, #06b6d4, #0891b2, #06b6d4, #0891b2);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Loading states */
+.loading-shimmer {
+  background: linear-gradient(90deg, #e0f7fa 25%, #b2ebf2 50%, #e0f7fa 75%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .animate-truck-move {
+    top: 1rem; /* Küçük ekranlarda yol çizgisine daha yakın */
+    animation-duration: 6s;
+  }
+  
+  .animate-float {
+    animation-duration: 8s;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .text-gray-600 {
+    color: #374151;
+  }
+  
+  .text-gray-400 {
+    color: #6b7280;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .animate-bounce,
+  .animate-pulse,
+  .animate-spin,
+  .animate-ping,
+  .animate-float,
+  .animate-slide,
+  .animate-truck-move {
+    animation: none;
+  }
+  
+  .transition-transform {
+    transition: none;
+  }
+}
+
+/*  Erişilebilirlik İçin Odak Sitilleri Çerçeve*/
+button:focus,
+a:focus {
+  outline: none;
+  box-shadow: none; /* bazı tarayıcılar shadow ile gösteriyor */
+}
+
+/* Boyama Stili */
+@media print {
+  .animate-bounce,
+  .animate-pulse,
+  .animate-spin,
+  .animate-ping,
+  .animate-float,
+  .animate-slide {
+    animation: none;
+  }
+  
+  .shadow-lg,
+  .shadow-xl,
+  .shadow-2xl {
+    box-shadow: none;
+  }
+}
