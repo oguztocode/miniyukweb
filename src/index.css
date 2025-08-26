@@ -195,7 +195,10 @@ html {
 /* Mobile optimizations */
 @media (max-width: 768px) {
   .animate-truck-move {
-    top: 1rem; /* Küçük ekranlarda yol çizgisine daha yakın */
+    position: absolute; /* emin ol */
+    top: 0.3rem; /* daha yukarıya sabitle */
+    left: 50%;
+    transform: translateX(-50%); /* ortalamak için */
     animation-duration: 6s;
   }
   
